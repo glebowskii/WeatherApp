@@ -1,30 +1,30 @@
 # WeatherApp
 
-Веб приложение на ASP.NET Core, которое позволяет сохранять интересующие вас локации и отслеживать погоду в них.
+An ASP.NET Core web application that lets you save locations you care about and track weather in them.
 
-## Особенности:
-- В качестве ORM используется Entity Framework Core (с миграциями)
-- Для хранения данных выбрана PostgreSQL
-- Контейнеризация с использование Docker Compose, в котором развернута сама БД и pgAdmin для удобного взаимодействия с ней
-- Для получения актуальной информации о погоде используется API сервиса [weatherapi](https://www.weatherapi.com/)
-- Аутентификация пользователей с использованием JWT
+## Features
+- Uses Entity Framework Core as ORM (with migrations)
+- Uses PostgreSQL for data storage
+- Containerized with Docker Compose, including the database and pgAdmin for convenient DB management
+- Uses the [weatherapi](https://www.weatherapi.com/) API to fetch up-to-date weather data
+- User authentication based on JWT
 
 
 ## API
 
-Взаимодействие с сервисом осуществляется через REST API.
+The service is exposed via a REST API.
 
-[Ознакомиться с ним можно на SwaggerHub.](https://app.swaggerhub.com/apis/echpochmak31/weather-app-api/v1)
+[View the API on SwaggerHub.](https://app.swaggerhub.com/apis/echpochmak31/weather-app-api/v1)
 
 
-## Описание
-Прежде всего пользователю необходимо зарегистрироваться указав email и пароль.
-После чего он получит JWT токен, сможет авторизоваться и полуить доступ к функционалу приложения, который включает в себя:
+## Description
+First, the user registers with an email and password.
+After that, they receive a JWT token, can authenticate, and get access to the following functionality:
 
-- Получение текущей информации о погоде через weatherapi
-- Получение списка локаций через weatherapi (удобно, если в мире несколько локаций с одним названием, например Paris)
-- Создание группы из нескольких локаций (пользователь может иметь несколько групп)
-- Получение списка групп для пользователя
-- Получение информации о погоде во всех локациях из всех групп пользователя  
-- Информация в БД о погоде в локациях периодически обновляется    
+- Get current weather information via weatherapi
+- Look up locations via weatherapi (useful when multiple locations share the same name, e.g. Paris)
+- Create groups that contain multiple locations (a user can have multiple groups)
+- Retrieve the list of groups for a user
+- Retrieve weather information for all locations across all user groups
+- Weather data for locations stored in the database is updated periodically
 
